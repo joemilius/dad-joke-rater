@@ -45,8 +45,7 @@ h1 {
 
 .dad-joke-container {
     display: block;
-    margin: 4em;
-    padding: 1em;
+    margin: 0em 4em 1em 4em;
 }
 
 .joke-card {
