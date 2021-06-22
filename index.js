@@ -4,25 +4,37 @@ const dadJokes = document.getElementById('dad-joke-container')
 document.addEventListener('DOMContentLoaded', getDadJoke)
 
 function getDadJoke() {
-    // fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
-    // .then(resp => resp.json())
-    // .then(data => renderJoke(data))
+    fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
+    .then(resp => resp.json())
+    .then(data => renderJoke(data))
 }
 
 function renderJoke(data) {
     let jokeCard = document.createElement('div')
     jokeCard.setAttribute('class', 'joke-card')
-    let jokeSetup = document.createElement('h4')
+    let jokeSetup = document.createElement('h1')
     jokeSetup.textContent = data.setup
-    let jokePunchline = document.createElement('h4')
+    let jokePunchline = document.createElement('h1')
     jokePunchline.textContent = data.punchline
     let favButton = document.createElement('button')
     favButton.textContent = "Favorite this Joke"
+    let nextJokeButton = document.createElement('button')
+    nextJokeButton.textContent = "Next Dad Joke"
 
     dadJokes.append(jokeCard)
     jokeCard.append(jokeSetup)
     jokeCard.append(jokePunchline)
     jokeCard.append(favButton)
+    jokeCard.append(nextJokeButton)
+
+    nextJokeButton.addEventListener('click', (e) => {
+        e.path[1].remove()
+        getDadJoke()
+    })
+
+    favButton.addEventListener('click', (e) => {
+        console.log(e.target)
+    })
 }
 
 dadShoes.forEach(shoe => shoe.addEventListener('click', giveRating))
