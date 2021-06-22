@@ -157,3 +157,13 @@ h1 {
     text-align: center;
 }
 
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2em;
+    background-color: black;
+    color: white;
+    text-align: center;
+}

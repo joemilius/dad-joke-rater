@@ -4,9 +4,9 @@ const dadJokes = document.getElementById('dad-joke-container')
 document.addEventListener('DOMContentLoaded', getDadJoke)
 
 function getDadJoke() {
-    fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
-    .then(resp => resp.json())
-    .then(data => renderJoke(data))
+    // fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
+    // .then(resp => resp.json())
+    // .then(data => renderJoke(data))
 }
 
 function renderJoke(data) {
