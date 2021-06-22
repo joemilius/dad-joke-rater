@@ -74,3 +74,5 @@ function giveRating(e) {
         break;     
     }
 }
+
+/*fetch works!!!!!!!!!*/
