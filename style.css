@@ -45,13 +45,15 @@ h1 {
 
 .dad-joke-container {
     display: block;
-    background-color: white;
     margin: 4em;
     padding: 1em;
 }
 
 .joke-card {
     text-align: center;
+    margin: 2em;
+    padding: 2em;
+    background-color: white;
 }
 
 .row {
@@ -155,6 +157,10 @@ h1 {
 
 #new-joke-form {
     text-align: center;
+}
+
+#favorite-jokes {
+    margin-top: 0px;
 }
 
 footer {

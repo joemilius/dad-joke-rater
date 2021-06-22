@@ -4,8 +4,6 @@ const favoriteJokes = document.getElementById('favorite-jokes')
 let favButton = document.createElement('button')
 let nextJokeButton = document.createElement('button')
 
-
-
 document.addEventListener('DOMContentLoaded', getDadJoke)
 
 function getDadJoke() {
@@ -38,7 +36,6 @@ nextJokeButton.addEventListener('click', (e) => {
 })
 
 favButton.addEventListener('click', (e) => {
-    console.log(e.target.previousSibling.textContent)
     let favJokeCard = document.createElement('div')
     favJokeCard.setAttribute('class', 'joke-card')
     let favJokeSetup = document.createElement('h1')
