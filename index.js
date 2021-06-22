@@ -4,22 +4,25 @@ const dadJokes = document.getElementById('dad-joke-container')
 document.addEventListener('DOMContentLoaded', getDadJoke)
 
 function getDadJoke() {
-    fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
-    .then(resp => resp.json())
-    .then(data => renderJoke(data))
+    // fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
+    // .then(resp => resp.json())
+    // .then(data => renderJoke(data))
 }
 
 function renderJoke(data) {
     let jokeCard = document.createElement('div')
     jokeCard.setAttribute('class', 'joke-card')
-    let jokeSetup = document.createElement('h3')
+    let jokeSetup = document.createElement('h4')
     jokeSetup.textContent = data.setup
-    let jokePunchline = document.createElement('h2')
+    let jokePunchline = document.createElement('h4')
     jokePunchline.textContent = data.punchline
+    let favButton = document.createElement('button')
+    favButton.textContent = "Favorite this Joke"
 
     dadJokes.append(jokeCard)
     jokeCard.append(jokeSetup)
     jokeCard.append(jokePunchline)
+    jokeCard.append(favButton)
 }
 
 dadShoes.forEach(shoe => shoe.addEventListener('click', giveRating))
