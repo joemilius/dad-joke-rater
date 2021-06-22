@@ -1,41 +1,56 @@
 let dadShoes = document.querySelectorAll('.dad-shoe')
-const dadJokes = document.getElementById('dad-joke-container')
+const dadJokes = document.getElementById('rendered-joke')
+const favoriteJokes = document.getElementById('favorite-jokes')
+let favButton = document.createElement('button')
+let nextJokeButton = document.createElement('button')
+
+
 
 document.addEventListener('DOMContentLoaded', getDadJoke)
 
 function getDadJoke() {
-    // fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
-    // .then(resp => resp.json())
-    // .then(data => renderJoke(data))
+    fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
+    .then(resp => resp.json())
+    .then(data => renderJoke(data))
 }
 
 function renderJoke(data) {
     let jokeCard = document.createElement('div')
     jokeCard.setAttribute('class', 'joke-card')
     let jokeSetup = document.createElement('h1')
-    jokeSetup.textContent = data.setup
     let jokePunchline = document.createElement('h1')
+    jokeSetup.textContent = data.setup
     jokePunchline.textContent = data.punchline
-    let favButton = document.createElement('button')
-    favButton.textContent = "Favorite this Joke"
-    let nextJokeButton = document.createElement('button')
-    nextJokeButton.textContent = "Next Dad Joke"
-
     dadJokes.append(jokeCard)
     jokeCard.append(jokeSetup)
     jokeCard.append(jokePunchline)
+    favButton
+    favButton.textContent = "Favorite this Joke"
+    nextJokeButton
+    nextJokeButton.textContent = "Next Dad Joke"
     jokeCard.append(favButton)
     jokeCard.append(nextJokeButton)
-
-    nextJokeButton.addEventListener('click', (e) => {
-        e.path[1].remove()
-        getDadJoke()
-    })
-
-    favButton.addEventListener('click', (e) => {
-        console.log(e.target)
-    })
 }
+
+nextJokeButton.addEventListener('click', (e) => {
+    e.path[1].remove()
+    getDadJoke()
+})
+
+favButton.addEventListener('click', (e) => {
+    console.log(e.target.previousSibling.textContent)
+    let favJokeCard = document.createElement('div')
+    favJokeCard.setAttribute('class', 'joke-card')
+    let favJokeSetup = document.createElement('h1')
+    favJokeSetup.textContent = e.target.parentNode.firstChild.textContent
+    let favJokePunchline = document.createElement('h1')
+    favJokePunchline.textContent = e.target.previousSibling.textContent
+    favoriteJokes.append(favJokeCard)
+    favJokeCard.append(favJokeSetup)
+    favJokeCard.append(favJokePunchline)
+    e.target.parentNode.remove()
+    getDadJoke()
+})
 
 dadShoes.forEach(shoe => shoe.addEventListener('click', giveRating))
 function giveRating(e) {

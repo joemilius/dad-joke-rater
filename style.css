@@ -43,7 +43,7 @@ h1 {
     margin: 0px;
 }
 
-#dad-joke-container {
+.dad-joke-container {
     display: block;
     background-color: white;
     margin: 4em;
