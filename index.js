@@ -117,93 +117,52 @@ ratedJokeSection.append(ratedJokeHeading)
 function renderRatedJokes(joke) {
     let ratedJokeCard = document.createElement('div')
     ratedJokeCard.setAttribute('class', 'joke-card')
+    ratedJokeCard.setAttribute('id', joke.id)
     ratedJokeCard.style.display = 'none'
     
-    let ratedJokeSetup = document.createElement('p')
+    let ratedJokeSetup = document.createElement('h3')
     ratedJokeSetup.textContent = joke.setup
     
-    let ratedJokePunchline = document.createElement('p')
+    let ratedJokePunchline = document.createElement('h3')
     ratedJokePunchline.textContent = joke.punchline
     ratedJokePunchline.style.fontWeight = 'bold'
 
-    //Dad Shoe Rerating
     let dadShoeContainer = document.createElement('div')
-    let eachDadShoe1 = document.createElement('div')
-    let eachDadShoe2 = document.createElement('div')
-    let eachDadShoe3 = document.createElement('div')
-    let eachDadShoe4 = document.createElement('div')
-    let eachDadShoe5 = document.createElement('div')
-    let dadShoeButton1 = document.createElement('img')
-    let dadShoeButton2 = document.createElement('img')
-    let dadShoeButton3 = document.createElement('img')
-    let dadShoeButton4 = document.createElement('img')
-    let dadShoeButton5 = document.createElement('img')
-    let ratingValue1 = document.createElement('h2')
-    let ratingValue2 = document.createElement('h2')
-    let ratingValue3 = document.createElement('h2')
-    let ratingValue4 = document.createElement('h2')
-    let ratingValue5 = document.createElement('h2')
-   
     dadShoeContainer.setAttribute('class', 'row')
     dadShoeContainer.setAttribute('id', 'rerate-container')
-    eachDadShoe1.setAttribute('class', 'column')
-    eachDadShoe2.setAttribute('class', 'column')
-    eachDadShoe3.setAttribute('class', 'column')
-    eachDadShoe4.setAttribute('class', 'column')
-    eachDadShoe5.setAttribute('class', 'column')
-    eachDadShoe1.setAttribute('class', 'rerate-dad-shoe')
-    eachDadShoe2.setAttribute('class', 'rerate-dad-shoe')
-    eachDadShoe3.setAttribute('class', 'rerate-dad-shoe')
-    eachDadShoe4.setAttribute('class', 'rerate-dad-shoe')
-    eachDadShoe5.setAttribute('class', 'rerate-dad-shoe')
-    dadShoeButton1.setAttribute('class', 'dad-shoe wobble-vertical-on-hover rerate-button')
-    dadShoeButton2.setAttribute('class', 'dad-shoe wobble-vertical-on-hover rerate-button')
-    dadShoeButton3.setAttribute('class', 'dad-shoe wobble-vertical-on-hover rerate-button')
-    dadShoeButton4.setAttribute('class', 'dad-shoe wobble-vertical-on-hover rerate-button')
-    dadShoeButton5.setAttribute('class', 'dad-shoe wobble-vertical-on-hover rerate-button')
-    
-    dadShoeButton1.src = 'images/new-balance-shoe.png'
-    dadShoeButton2.src = 'images/new-balance-shoe.png'
-    dadShoeButton3.src = 'images/new-balance-shoe.png'
-    dadShoeButton4.src = 'images/new-balance-shoe.png'
-    dadShoeButton5.src = 'images/new-balance-shoe.png'
 
-    ratingValue1.textContent = 1
-    ratingValue2.textContent = 2
-    ratingValue3.textContent = 3
-    ratingValue4.textContent = 4
-    ratingValue5.textContent = 5
-
-    dadShoeContainer.appendChild(eachDadShoe1)
-    eachDadShoe1.appendChild(dadShoeButton1)
-    eachDadShoe1.appendChild(ratingValue1)
-    dadShoeContainer.appendChild(eachDadShoe2)
-    eachDadShoe2.appendChild(dadShoeButton2)
-    eachDadShoe2.appendChild(ratingValue2)
-    dadShoeContainer.appendChild(eachDadShoe3)
-    eachDadShoe3.appendChild(dadShoeButton3)
-    eachDadShoe3.appendChild(ratingValue3)
-    dadShoeContainer.appendChild(eachDadShoe4)
-    eachDadShoe4.appendChild(dadShoeButton4)
-    eachDadShoe4.appendChild(ratingValue4)
-    dadShoeContainer.appendChild(eachDadShoe5)
-    eachDadShoe5.appendChild(dadShoeButton5)
-    eachDadShoe5.appendChild(ratingValue5)
-
-    let rerateButton = document.querySelectorAll('.rerate-button')
-    console.log(rerateButton)
-    rerateButton.forEach(button => button.addEventListener('click', event => {
-        console.log(event.target)
-        // fetch(`http://localhost:3000/ratedJokes/${}`)
-    }))
-
+    let eachDadShoe = document.createElement('div')
+    eachDadShoe.setAttribute('class', 'column, rerate-dad-shoe')
+    eachDadShoe.innerHTML = `
+    <p>Here you can rerate a joke!</p>
+    <div class='row'>
+        <div class='column'>
+            <img class='dad-shoe wobble-vertical-on-hover rerate-button' src='images/new-balance-shoe.png'>
+            <h2>1</h2>
+        </div>
+        <div class='column'>
+            <img class='dad-shoe wobble-vertical-on-hover rerate-button' src='images/new-balance-shoe.png'>
+            <h2>2</h2>
+        </div>
+        <div class='column'>
+            <img class='dad-shoe wobble-vertical-on-hover rerate-button' src='images/new-balance-shoe.png'>
+            <h2>3</h2>  
+        </div>
+        <div class='column'>
+            <img class='dad-shoe wobble-vertical-on-hover rerate-button' src='images/new-balance-shoe.png'>
+            <h2>4</h2>
+        </div>
+        <div class='column'>
+            <img class='dad-shoe wobble-vertical-on-hover rerate-button' src='images/new-balance-shoe.png'>
+            <h2>5</h2>
+        </div>
+    </div>`
 
     ratedJokeSection.append(ratedJokeCard)
     ratedJokeCard.append(ratedJokeSetup)
     ratedJokeCard.append(ratedJokePunchline)
     ratedJokeCard.append(dadShoeContainer)
-    
-    
+    dadShoeContainer.append(eachDadShoe)
 
     filterButtons.forEach(button => button.addEventListener('change', showFilteredJokes))
 
@@ -217,6 +176,30 @@ function renderRatedJokes(joke) {
         }
     }
 }
+
+function renderRerate() {
+    let rerateButtons = document.querySelectorAll('.rerate-button')
+
+    rerateButtons.forEach(button => button.addEventListener('click', (event) => {
+        fetch(`http://localhost:3000/ratedJokes/${event.target.parentNode.parentNode.parentNode.parentNode.parentNode.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                rating: parseInt(event.target.nextElementSibling.textContent)
+            })
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            event.target.parentNode.parentNode.parentNode.parentNode.parentNode.remove()
+            renderRatedJokes(data)
+            renderRerate()
+        })
+    }))
+}
+
+setTimeout(renderRerate, 1000)
 
 newJokeForm.addEventListener('submit', addNewJoke)
 
@@ -234,12 +217,18 @@ function addNewJoke(e) {
                 rating: parseInt(e.target[2].value)
             })
         })
+        .then(resp => resp.json())
+        .then(data => {
+            renderRatedJokes(data)
+            renderRerate()
+        })
         .then(() => {
             e.target[0].value = ''
             e.target[1].value = ''
             e.target[2].value = ''
             alert(`You're submission was successful!`)
         })
+        
     } else {
         alert('Please enter a single number between 1 & 5 for your rating')
     }
