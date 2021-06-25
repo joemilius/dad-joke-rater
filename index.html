@@ -11,41 +11,55 @@
 <body>
     <header>
         <div class='wordart blues'>
-            <span class='text'>DAD JOKE RATER</span>
-        </div>
+            <span class='text'>DAD JOKE RATER</span> 
+        </div>  <---DONT TOUCH IT...just like the thermostat
     </header>
-    <div id='rendered-joke' class='dad-joke-container'>
-    </div>
+    <section id='rendered-joke' class='dad-joke-container'>
+    </section>
     <section id='rating'>
         <h1>How many New Balance™ shoes would you rate this dad joke?</h1>
         <div class='row'>
             <div class='column'>
-                <img class='dad-shoe wobble-vertical-on-hover' id='1' src='images/new-balance-shoe.png'><h2>1</h2>
+                <img class='dad-shoe wobble-vertical-on-hover' src='images/new-balance-shoe.png'><h2>1</h2>
             </div>
             <div class='column'>
-                <img class='dad-shoe wobble-vertical-on-hover' id='2' src='images/new-balance-shoe.png'><h2>2</h2>
+                <img class='dad-shoe wobble-vertical-on-hover' src='images/new-balance-shoe.png'><h2>2</h2>
             </div>
             <div class='column'>
-                <img class='dad-shoe wobble-vertical-on-hover' id='3' src='images/new-balance-shoe.png'><h2>3</h2>  
+                <img class='dad-shoe wobble-vertical-on-hover' src='images/new-balance-shoe.png'><h2>3</h2>  
             </div>
             <div class='column'>
-                <img class='dad-shoe wobble-vertical-on-hover' id='4' src='images/new-balance-shoe.png'><h2>4</h2>
+                <img class='dad-shoe wobble-vertical-on-hover' src='images/new-balance-shoe.png'><h2>4</h2>
             </div>
             <div class='column'>
-                <img class='dad-shoe wobble-vertical-on-hover' id='5' src='images/new-balance-shoe.png'><h2>5</h2>
+                <img class='dad-shoe wobble-vertical-on-hover' src='images/new-balance-shoe.png'><h2>5</h2>
             </div>
     </section> 
-    <div id='new-joke-container'>
-        <h1>Submit your own Dad Joke</h1>
-        <form id='new-joke-form'>
-            <input placeholder='setup'/>
-            <input placeholder="punchline"/>
-            <button id='new-joke-button' type='submit'>Submit</button>
-        </form>
-    </div>
-    <h1>Your Favorite Jokes</h1>
-        <div id='favorite-jokes' class='dad-joke-container'>
+    <section class='joke-actions'>
+        <div class='row'>
+            <section id='new-joke-container' class='column'>
+                <h1>Submit your own Dad Joke</h1>
+                <form id='new-joke-form'>
+                    <input placeholder='setup'/>
+                    <input placeholder="punchline"/><br>
+                    <input placeholder="rating"/><br>
+                    <button id='new-joke-button' class='button-class' type='submit'>Submit</button>
+                </form>
+            </section>
+            <section id='filter-container' class='column'>
+                <h1>Filter Jokes by Rating</h1>
+                <input type='radio' value='1' name='ans' class='joke-filter'> 1 Dad Shoe <br>
+                <input type='radio' value='2' name='ans' class='joke-filter'> 2 Dad Shoes <br>
+                <input type='radio' value='3' name='ans' class='joke-filter'> 3 Dad Shoes <br>
+                <input type='radio' value='4' name='ans' class='joke-filter'> 4 Dad Shoes <br>
+                <input type='radio' value='5' name='ans' class='joke-filter'> 5 Dad Shoes <br>
+            </section>
+            <section id='favorite-jokes' class='dad-joke-container column'>
+                <h1>Your Favorite Joke</h1>
+            </section>
         </div>
-    <footer>Steve Vaughn & Joe Milius</footer>
+    </section>
+    <section id='rated-jokes'>
+    </section>
 </body>
 </html>
